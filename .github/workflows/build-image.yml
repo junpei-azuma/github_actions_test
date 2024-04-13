@@ -2,6 +2,8 @@ name: Build And Push Container Image
 
 on:
   push:
+    tags:
+      - "*"
 
 env:
   REGISTRY: ghcr.io
