@@ -1,5 +1,5 @@
 FROM python:3.12-slim
 
 
-COPY . .
+COPY app.py .
 CMD ["python", "./app.py"]
