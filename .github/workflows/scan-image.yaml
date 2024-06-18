@@ -1,0 +1,25 @@
+name: Scan Image
+on:
+  push:
+jobs:
+  scan-image:
+   runs-on: ubuntu-latest
+   steps:
+     - name: Checkout 
+       uses: actions/checkout@v4
+     - name: Distroless scan
+       uses: aquasecurity/trivy-action@0.20.0
+       with:
+        image-ref: 'gcr.io/distroless/java17-debian12'
+        format: 'table'
+        exit-code: '1'
+        ignore-unfixed: true
+        vuln-type: 'os,library'
+     - name: OpenJDK Scan
+       uses: aquasecurity/trivy-action@0.20.0
+       with:
+        image-ref: 'openjdk:17'
+        format: 'table'
+        exit-code: '1'
+        ignore-unfixed: true
+        vuln-type: 'os,library'
