@@ -1,0 +1,15 @@
+name: Exec Shell
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: chackout
+      uses: actions/checktou@v4
+    - name: test
+      run: sh ./hoge.sh
+    
+  
